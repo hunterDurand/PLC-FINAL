@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class question5{
+public class question5{
 public static void main(String[] args)
 {
    int i,j,n=4,index=-1;
