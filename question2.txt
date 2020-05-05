@@ -1,0 +1,44 @@
+
+Target	=	
+MainClass, { ClassDeclaration }, EOF;
+
+         /* EOF:token returned by the scanner at end-of-file */
+
+MainClass	=	"class", Identifier, "{", "public", "static", "void", "main", "(", "String", "[", "]", Identifier, ")", "{", Statement, "}", "}";
+ClassDeclaration	=	"class", Identifier, [ "extends", Identifier ], "{", { VarDeclaration }, { MethodDeclaration } "}";
+VarDeclaration	=	Type, Identifier, ";";
+MethodDeclaration	=	"public", Type, Identifier, "(", [ Type, Identifier, { ",", Type, Identifier }, ], ")", "{", { VarDeclaration }, { Statement }, "return", Expression, ";", "}";
+Type	=	"int", "[", "]"
+|	"boolean"
+|	"int"
+|	Identifier /* one or more letters, digits, and underscores, starting with a letter */
+;	
+/* assignment statement */
+Statement	=	"{", { Statement }, "}"
+|	"if", "(", Expression, ")", Statement, "else", Statement
+|	"while", "(", Expression, ")", Statement
+|	"System.out.println", "(" , Expression, ")", ";"
+|	Identifier, "=", Expression, ";"
+|	Identifier, "[", Expression, "]", "=", Expression, ";"
+;	
+/* boolean or matheamtical model expression*/
+Expression	=	Expression , ( "&&" | "<" | "+" | "-" | "*" ) , Expression
+|	Expression, "[", Expression, "]"
+|	Expression, ".", "length"
+|	Expression, ".", Identifier, "(", [ Expression { ",", Expression } ], ")"
+|	
+IntegerLiteral  
+
+/*
+
+one or more decimal digits*/
+|	"true"
+|	"false"
+|	Identifier
+|	"this"
+|	"new", "int", "[", Expression, "]"
+|	"new", Identifier ,"(" ,")"
+|	"!", Expression
+|	"(", Expression, ")"
+;	<keyword> ::= abstract | boolean | break | byte | case | catch | char | class | const | continue | default | do | double | else | extends | final | finally | float | for | goto | if | implements | import | instanceof | int | interface | long | native | new | package | private | protected | public | return | short | static | super | switch | synchronized | this | throw | throws | transient | try | void | volatile | while
+

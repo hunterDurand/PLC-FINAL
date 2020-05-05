@@ -1,0 +1,50 @@
+public class question1
+
+{
+private static final String Hello = null;
+
+   public static void main(String[] args)
+{
+//Integer literals
+  
+int a = 101; // Decimal-form literal
+int b = 0100; // Octal-form literal
+int c = 0xFace; // Hexa-decimal form literal
+int d = 0b1111; // Binary literal
+System.out.println(a);
+System.out.println(b);
+System.out.println(c);
+System.out.println(d);
+  
+//floating-point literals
+
+float aa = (float) 101.230; // decimal-form literal
+float bb = (float) 0123.222; // This will also acts as decimal literal
+//float c = 0x123.222; // Hexa-decimal form
+System.out.println(aa);
+System.out.println(bb);
+// System.out.println(c);
+
+  
+//String literals
+  
+String s = "Hello";
+  
+// When we assign without "" then it treats as a variable and causes compiler error
+
+String s1 = Hello;
+  
+System.out.println(s);
+  
+System.out.println(s1);
+  
+  
+//Variable
+int amount = 100; //instance variable
+int pin = 2315; //static variable
+int age = 35; //local variable
+System.out.println("The Value is : " + amount);
+System.out.println("The Value is : " + pin);
+System.out.println("The Value is : " + age);
+}
+}
